@@ -1,4 +1,12 @@
 # Spring and Spring Boot training examples
+<!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
+- [01 - Dependencies](#01---dependencies)
+    - [@component](#component)
+    - [Beans scope](#beans-scope)
+    - [CommandLineRunner](#commandlinerunner)
+<!-- TOC END -->
+
+
 
 ## 01 - Dependencies
 
@@ -35,12 +43,6 @@ public class BinarySearchImplInjected {
 ```
  4. Create the class that uses the beans  
    * **@SpringApplication** includes **@ComponentScan**: tells Spring to look for beans in this directory.
-   * **@component** tells Spring to look in this directory. A Spring managed bean candidate for auto-detection via classpath scanning.
-   * Component subtypes:
-     * **@Controller**: a Spring MVC web controller.
-     * **@Repository**: data manager / storage (DAO, DDD).
-     * **@Service**: provide business logic - a (stateless) facade.
-   * **@Primary**: when declaring beans, you can avoid autowiring ambiguity by designating one candidate bean as primary bean.
 
 ```java
 @SpringBootApplication
@@ -61,3 +63,20 @@ public class DependencyInjectionExampleApplication {
     }
 }
 ```
+### @component
+tells Spring to look in this directory. A Spring managed bean candidate for auto-detection via classpath scanning.
+* Component subtypes:
+  * **@Controller**: a Spring MVC web controller.
+  * **@Repository**: data manager / storage (DAO, DDD).
+  * **@Service**: provide business logic - a (stateless) facade.
+* **@Primary**: when declaring beans, you can avoid autowiring ambiguity by designating one candidate bean as primary bean.
+
+### Beans scope
+* Singleton: one instance of the bean is created for the entire application.
+* Prototype: one instance of the bean is created every time the bean is injected into or retrieve from the Spring application context.
+* Session: in a web app, one instance of the bean is created for each session.
+* Request: in a web app, one instance of the bean is created for each request.
+
+### CommandLineRunner
+* Use to indicate that a bean should be run when it is contained within a SpringApplication.
+* Multiple CommandLineRunner beans can be defined within the same application context and can be ordered using the Ordered Interface or @Order annotation.

@@ -8,7 +8,7 @@ import java.util.Arrays;
 @Component
 public class BinarySearchImplInjected {
 
-    @Autowired
+    @Inject
     SortAlgorithm sortAlgorithm;
 
     public int search (int[] numbers, int numberToSearchFor) {
