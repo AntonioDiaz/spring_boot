@@ -2,6 +2,7 @@ package com.adiaz;
 
 import com.adiaz.search.coupled.BinarySearchImpl;
 import com.adiaz.search.loosecoupled.BinarySearchImplAdvanced;
+import com.adiaz.search.loosecoupled.BinarySearchImplInjected;
 import com.adiaz.search.loosecoupled.SortAlgorithm;
 import com.adiaz.search.loosecoupled.SortAlgorithmImplA;
 import org.springframework.boot.SpringApplication;
@@ -27,7 +28,7 @@ public class DependencyInjectionExampleApplication {
         System.out.println(
                 "Number found in position (after sort): " + found);
 
-        BinarySearchImplAdvanced bean = applicationContext.getBean(BinarySearchImplAdvanced.class);
+        BinarySearchImplInjected bean = applicationContext.getBean(BinarySearchImplInjected.class);
         System.out.println(
                 "Number found in position (after sort): " + bean.search(new int[]{3, 5, 1}, 3));
 

@@ -1,14 +1,15 @@
 package com.adiaz.search.loosecoupled;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
-public class BinarySearchImplAdvanced {
+@Component
+public class BinarySearchImplInjected {
 
+    @Autowired
     SortAlgorithm sortAlgorithm;
-
-    public BinarySearchImplAdvanced (SortAlgorithm sortAlgorithm) {
-        this.sortAlgorithm = sortAlgorithm;
-    }
 
     public int search (int[] numbers, int numberToSearchFor) {
         sortAlgorithm.sort(numbers);
